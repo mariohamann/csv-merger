@@ -2,12 +2,56 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>csv-merger</title>
+    <title>CSV Merger</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div class="container">
+        <header>
+          <h1>CSV Merger</h1>
+        </header>
+
+        <section class="upload-files-container">
+          <div class="upload-section">
+            <h3>Upload CSV Files</h3>
+            <div class="drop-zone" id="dropZone">
+              <p>Drag CSV files here or click to select</p>
+              <input
+                type="file"
+                id="fileInput"
+                multiple
+                accept=".csv"
+                style="display: none"
+              />
+            </div>
+          </div>
+
+          <div class="files-section">
+            <h3>Added Files (<span id="fileCount">0</span>)</h3>
+            <div id="fileList" class="file-list"></div>
+          </div>
+        </section>
+        <section class="actions-section">
+          <button id="downloadBtn" class="btn btn-primary btn-download" disabled>
+            ⬇ Download CSV
+          </button>
+        </section>
+        <section class="preview-section">
+          <div class="preview-header">
+            <h2>Merged Data Preview</h2>
+          </div>
+          <div class="table-wrapper">
+            <table id="previewTable">
+              <thead id="tableHead"></thead>
+              <tbody id="tableBody"></tbody>
+            </table>
+          </div>
+          <div id="message" class="message"></div>
+        </section>
+      </div>
+    </div>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
